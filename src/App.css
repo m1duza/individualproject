@@ -153,14 +153,34 @@ body{
 .main__place-info{
 
 }
-
+.header__menu-list{
+  text-decoration: none;
+}
 /*========================================================================================*/
-
+.header__title a {
+  color: #333; /* Цвет текста ссылки */
+  text-decoration: none; /* Убираем подчеркивание */
+  transition: color 0.3s ease; /* Плавный переход цвета */
+}
 .footer{
 	background-color: #6A7CA1;
 	padding: 20px 0;
 }
-
+.header__menu-link {
+  color: #333; /* Цвет текста */
+  text-decoration: none; /* Убираем подчеркивание */
+  font-size: 16px;
+  padding: 8px 12px; /* Внутренние отступы */
+  transition: all 0.3s ease; /* Плавный переход для всех изменений */
+  font-size: 20px;
+}
+.header__menu-list {
+  list-style: none; /* Убираем маркеры списка */
+  margin: 0;
+  padding: 0;
+  display: flex; /* Располагаем элементы горизонтально */
+  gap: 20px; /* Расстояние между пунктами */
+}
 .footer__container{
 	max-width: 700px;
 }
