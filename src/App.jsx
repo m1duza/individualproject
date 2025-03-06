@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
 
@@ -447,6 +448,8 @@ const Facts = () => (
 
 
 function App() {
+const [toggleButton, setToggleButton] = useState(false)
+
   return (
     <Router>
       <div>
@@ -457,14 +460,66 @@ function App() {
                 <NavLink to="/">Моя Россия</NavLink>
               </h1>
 
-              <button className="header__menu-burger">
+              <button onClick={()=>setToggleButton(!toggleButton)} className="header__menu-burger">
                 <span />
                 <span />
                 <span />
               </button>
 
-              <nav className="header__menu">
-                <ul className="header__menu-list">
+              
+            <div className="header_side_bar-active" style={{
+              width: toggleButton ? '70%' : '0',
+              alignContent: 'center'
+            }}>
+              <nav className="header__menu-active" >
+                <ul className="header__menu-list-active" style={{
+                  display: toggleButton ? 'flex' : 'none'
+                }} >
+                  <li>
+                    <NavLink
+                      to="/"
+                      className={({ isActive }) =>
+                        `header__menu-link ${isActive ? 'active' : ''}`
+                      }
+                    >
+                      О проекте
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/places"
+                      className={({ isActive }) =>
+                        `header__menu-link ${isActive ? 'active' : ''}`
+                      }
+                    >
+                      Интересные места
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/entertainment"
+                      className={({ isActive }) =>
+                        `header__menu-link ${isActive ? 'active' : ''}`
+                      }
+                    >
+                      Развлечения
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/facts"
+                      className={({ isActive }) =>
+                        `header__menu-link ${isActive ? 'active' : ''}`
+                      }
+                    >
+                      Факты
+                    </NavLink>
+                  </li>
+                </ul>
+              </nav>
+              </div>
+              <nav className="header__menu" >
+                <ul className="header__menu-list" >
                   <li>
                     <NavLink
                       to="/"
